@@ -8,12 +8,13 @@
   Ruby 2.3.7 Rails 5.1.6
 ## 機能一覧
   ユーザーとイベント主催者で利用できる機能が異なります。
-  <共通>
+
+#### <共通>
   - ログイン機能
   - カレンダー機能
   - レビュー機能
     - ユーザーとイベント主催者がそれぞれ評価できる
-  <ユーザー>
+#### <ユーザー>
   - ユーザー登録機能
     - 名前・メールアドレス・パスワード・好きなスポーツ・性別・自己紹介・アイコン
   - マイページ機能
@@ -37,7 +38,7 @@
   - チャット機能
     - 友達になったユーザーにメッセージを送れる
 
-  <イベント主催者>
+#### <イベント主催者>
   - イベント主催者（管理者）登録機能
     - 管理者名・メールアドレス・パスワード・所属団体・電話番号・スポーツカテゴリ・自己紹介
   - イベント管理機能（作成・削除・編集）
@@ -49,16 +50,16 @@
     - 参加者にリマインドメールを送ることができる
 
 
-- テーブル定義
+## テーブル定義
    https://docs.google.com/spreadsheets/d/1GVUdjpqyEgeIZQ3feLJVT1it_0iB-yFuWpYuX0yBEMw/edit?usp=sharing
 
-- 画面遷移図
+## 画面遷移図
  https://docs.google.com/spreadsheets/d/1Pn0-M-Y3UngPEcWnbsGsy4BDrX6edW727-maOg6MqnY/edit?usp=sharing
 
-- 画面ワイヤーフレーム
+## 画面ワイヤーフレーム
   https://docs.google.com/spreadsheets/d/1BPMjsod_EXpzf8FyxYQhgPgkMqn1BNr_XqzTd0GyaEw/edit?usp=sharing
 
-- 使用予定Gem
+## 使用予定Gem
   - devise
   - fullcalender
   - carrerwave
