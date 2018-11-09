@@ -49,15 +49,16 @@
   - リマインド機能
     - 参加者にリマインドメールを送ることができる
 
+## カタログ設計
+https://docs.google.com/spreadsheets/d/1knUeU86Re5VQ7D-sxvUWftO8HOsBcvsiBjHm2jdFVl4/edit?usp=sharing
 
-## テーブル定義
-   https://docs.google.com/spreadsheets/d/1GVUdjpqyEgeIZQ3feLJVT1it_0iB-yFuWpYuX0yBEMw/edit?usp=sharing
+## テーブル定義 https://docs.google.com/spreadsheets/d/1GVUdjpqyEgeIZQ3feLJVT1it_0iB-yFuWpYuX0yBEMw/edit?usp=sharing
 
 ## 画面遷移図
- https://docs.google.com/spreadsheets/d/1Pn0-M-Y3UngPEcWnbsGsy4BDrX6edW727-maOg6MqnY/edit?usp=sharing
+https://docs.google.com/spreadsheets/d/1Pn0-M-Y3UngPEcWnbsGsy4BDrX6edW727-maOg6MqnY/edit?usp=sharing
 
 ## 画面ワイヤーフレーム
-  https://docs.google.com/spreadsheets/d/1BPMjsod_EXpzf8FyxYQhgPgkMqn1BNr_XqzTd0GyaEw/edit?usp=sharing
+https://docs.google.com/spreadsheets/d/1BPMjsod_EXpzf8FyxYQhgPgkMqn1BNr_XqzTd0GyaEw/edit?usp=sharing
 
 ## 使用予定Gem
   - devise
