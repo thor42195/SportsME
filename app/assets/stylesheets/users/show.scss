@@ -1,0 +1,46 @@
+
+.column {
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+    .info {
+        margin-bottom: 10%;
+    }
+    h2 {
+        font-size: 3rem;
+    }
+    p {
+        font-size: 1.5rem;
+    }
+    .info_bar {
+        font-size: 2rem;
+        background: #0bd;
+        border-radius: 5px;
+        padding: 10px 50px;
+        color: #fff;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 18px;
+    }
+    a:hover {
+        background: #0090aa;
+    }
+.profile-image {
+    background: url("<%= image_tag @user.icon.url(:thumb) if @user.icon.url(:thumb)%>") no-repeat top center;
+    background-size: cover;
+}
+.cat2 {
+    background: url(http://webcreatorbox.com/sample/images/cat2.jpg) no-repeat top center;
+    background-size: cover;
+    color: rgba(0,0,0,.7);
+}
+
+@media all and (min-width: 500px) {
+  .wrapper {
+    display: flex;
+  }
+}

@@ -1,0 +1,24 @@
+<div class="top">
+  <%= render 'top-header'%>
+  <div class="loginPage">
+    <div class="container">
+      <%= image_tag "top-image.jpg", class:"top-page " %>
+      <div class="loginPage_contents">
+        <h1 class="h4 loginPage_contents_title">スポーツを通じて新しい自分を発見しよう</h1>
+        <%= link_to "ログインする", new_user_session_path, class: "btn loginPage_contents_btn_1" %>
+        <%= link_to "新規登録する", new_user_registration_path, class: "btn loginPage_contents_btn_2" %>
+        <%= link_to "イベント主催者の方はこちら", new_user_registration_path, class: "btn loginPage_contents_btn_3" %>
+      </div>
+    </div>
+    <div class="container">
+      <div class="service-overview">
+        <h1>SportMEとは</h1>
+        <h2>スポーツに参加したいけど勇気が出ない人同士を繋げるマッチングサイトです。</h2>
+      </div>
+    </div>
+    <div class="container">
+      <div class="service-feature">
+      </div>
+    </div>
+  </div>
+</div>

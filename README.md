@@ -67,3 +67,6 @@ https://docs.google.com/spreadsheets/d/1BPMjsod_EXpzf8FyxYQhgPgkMqn1BNr_XqzTd0Gy
   - carrerwave
   - mini_magick
   - CanCanCan
+  - bootstrap
+  - jquery-rails
+  - font-awesome-sass
