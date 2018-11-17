@@ -7,4 +7,5 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: %i(name introduction sex icon sport))
     # この行を追加する
     devise_parameter_sanitizer.permit(:account_update, keys: %i(name introduction sex icon sport))
+  end
 end

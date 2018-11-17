@@ -1,0 +1,60 @@
+<div class="AdminSinupPage">
+  <header class="header">
+    <div>アカウントを作成</div>
+  </header>
+  <div class='container'>
+    <%= form_for(resource, as: resource_name, url: organizer_registration_path) do |f| %>
+      <%= devise_error_messages! %>
+      <h2>必須項目</h2>
+      <div class="form-group">
+        <label>管理者名</label>
+        <%= f.text_field :name, class: "form-control", placeholder: "名前を入力してください" %>
+      </div>
+      <div class="form-group">
+        <label>団体名</label>
+        <%= f.text_field :group, class: "form-control", placeholder: "団体名を入力してください" %>
+      </div>
+      <div class="form-group">
+        <label>スポーツ種別</label>
+        <%= f.text_field :sport, class: "form-control", placeholder: "団体のスポーツ種別を入力してください" %>
+      </div>
+      <div class="form-group">
+        <label>Eメールアドレス</label>
+        <%= f.email_field :email, class: "form-control", placeholder: "emailを入力してください" ,autocomplete: "email" %>
+      </div>
+      <div class="form-group">
+        <label>電話番号</label>
+        <%= f.text_field :number, class: "form-control", placeholder: "emailを入力してください" ,autocomplete: "email" %>
+      </div>
+      <div class="form-group">
+        <label>パスワード</label>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %>文字以上入力してください)</em>
+        <% end %><br />
+        <%= f.password_field :password, class: "form-control", placeholder:"パスワードを入力してください", autocomplete: "off" %>
+      </div>
+      <div class="form-group">
+        <label>確認用パスワード</label>
+        <%= f.password_field :password_confirmation, class:"form-control", placeholder: "パスワードを再度入力してください", autocomplete: "off" %>
+      </div>
+      <h3>団体について詳しく教えてください（後で入力可能）</h3>
+      <div class="form-group">
+        <label>紹介文</label>
+        <%= text_area :admin, :introduction, maxlength: "1000", rows: "10", class:"form-control" %>
+      </div>
+      <label for="file_photo" class="rounded-circle adminProfileImg">
+        <div class="adminProfileImg_description">画像をアップロード</div>
+        <i class="fas fa-camera fa-3x"></i>
+        <%= f.file_field :icon, id: "file_photo" %>
+      </label>
+      <div class="adminImgPreview" id="adminImgPreview">
+        <img id="thumbnail" class="adminImgPreview_content" accept="image/*" src="">
+        <p class="adminImgPreview_text">画像をアップロード済み</p>
+      </div>
+      <div class="text-center">
+        <%= f.submit "はじめる", class: "btn submitBtn" %>
+        <%= render "organizers/shared/links" %>
+      </div>
+    <% end %>
+  </div>
+</div>
