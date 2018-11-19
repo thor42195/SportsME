@@ -8,6 +8,7 @@
   <meta charset="UTF-8">
 </head>
 <body>
+	  <%= render "admin-header"%>
 	<p><%= notice %></p>
 	<div class="container">
 		<div class="row">
@@ -35,9 +36,11 @@
 		 <div class="card-header">
 			 <%= event.content%>
 			 <div class="picture-edit">
-					   <%= link_to '参加する', event_path(event.id),{class:"btn btn-primary"} %>
-						 <%= link_to 'ブックマークする', event_path(event.id),{class:"btn btn-danger"} %>
-						 <%= link_to '興味あり', event_path(event.id),{class:"btn btn-info"} %>
+           <% if current_organizer.id == event.organizer_id %>
+             <%= link_to '詳細', event_path(event.id),{class:"btn btn-primary"} %>
+             <%= link_to '削除',  event_path(event.id), method: :delete, data:{confirm: 'Are you sure?'},class: 'btn btn-danger' %>
+             <%= link_to '編集', edit_event_path(event.id), class: 'btn btn-info' %>
+           <% end %>
 			 </div>
 		 </div>
 		 <% end %>

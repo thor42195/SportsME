@@ -31,7 +31,7 @@
          <%= link_to '詳細', event_path(@event.id),{class:"btn btn-primary"} %>
          <%= link_to '削除',  event_path(@event.id), method: :delete, data:{confirm: 'Are you sure?'},class: 'btn btn-danger' %>
          <%= link_to '編集', edit_event_path(@event.id), class: 'btn btn-info' %>
-       <% elsif current_user.id == user.id %>
+       <% elsif current_user.id == @user.id %>
        <!-- 期限がきれていたら、参加ボタンが表示されないようにする-->
          <%= link_to '参加する', event_path(@event.id),{class:"btn btn-primary"} %>
          <%= link_to 'ブックマークする', event_path(@event.id),{class:"btn btn-danger"} %>

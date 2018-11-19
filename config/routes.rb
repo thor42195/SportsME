@@ -18,12 +18,13 @@ Rails.application.routes.draw do
       post :confirm
     end
   end
-  get '/organizers/manage', to:'organizers#manage'
 
   resources :events do
     collection do
       post :confirm
     end
   end
+  get '/events/manage', to:'events#manage' #all events for organizers to manage
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -3,6 +3,10 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+  end
+
+  def manage
+    @events = Event.all
     @organizers = Organizer.all
   end
 
