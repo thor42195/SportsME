@@ -1,15 +1,15 @@
-$main-color: #007bff;
+$main-color: #dc3545;
 $main-text-color: #fff;
 
-.userEditPage {
-  .header {
+.adminEditPage {
+  .adminHeader {
     padding: 20px;
     margin-bottom: 40px;
     text-align: center;
     background: $main-color;
     color: $main-text-color;
   }
-  .submitBtn {
+  .adminSubmitBtn {
     background: $main-color;
     color: $main-text-color;
     width: 200px;

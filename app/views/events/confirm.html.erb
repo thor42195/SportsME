@@ -1,0 +1,66 @@
+<div class="adminPostPage">
+  <header class="header">
+    <div>以下の内容で、イベントを作成する</div>
+  </header>
+<%= form_with(model: @event, url: events_path, local: true) do |form| %>
+  <%= form.hidden_field :image_cache %>
+  <%= form.hidden_field :title %>
+  <%= form.hidden_field :content %>
+  <%= form.hidden_field :number %>
+  <%= form.hidden_field :starttime %>
+  <%= form.hidden_field :endtime %>
+  <%= form.hidden_field :deadline %>
+  <div class="form-group">
+    <h2>イベント名:<%= @event.title %></h2>
+      <%= image_tag(@event.image.url) %>
+  </div>
+
+  <table class="table" style="table-layout:fixed;width:100%;" border="1">
+    <colgroup>
+        <col style="width:20%;">
+        <col style="width:80%;">
+    </colgroup>
+  <thead>
+    <tr>
+      <th scope="col">項目</th>
+      <th scope="col">入力内容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">イベント名:</th>
+      <td style="word-wrap:break-word;"><%= @event.title %></td>
+    </tr>
+    <tr>
+      <th scope="row">イベント詳細:</th>
+      <td style="word-wrap:break-word;"><%= @event.content%></td>
+    </tr>
+    <tr>
+      <th scope="row">イベント予定時間:</th>
+      <td><%= @event.starttime.strftime("%Y-%m-%d %H:%M:%S")%>
+        ~ <%= @event.endtime.strftime("%Y-%m-%d %H:%M:%S")%>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">イベント参加人数（最大）:</th>
+      <td><%= @event.number %>人</td>
+    </tr>
+    <tr>
+      <th scope="row">申し込み締め切り:</th>
+      <td><%= @event.deadline.strftime("%Y-%m-%d %H:%M:%S") %>まで</td>
+    </tr>
+  </tbody>
+</table>
+  <%= form.submit  "作成する", class: "btn adminSubmitBtn" %>
+<% end %>
+
+<%= form_with(model: @event, url: new_event_path, local: true, method: 'get') do |form| %>
+<%= form.hidden_field :image_cache %>
+<%= form.hidden_field :title %>
+<%= form.hidden_field :content %>
+<%= form.hidden_field :number %>
+<%= form.hidden_field :starttime %>
+<%= form.hidden_field :endtime %>
+<%= form.hidden_field :deadline %>
+  <%= form.submit "もどる",name: 'back', class: "btn" %>
+<% end %>

@@ -1,0 +1,56 @@
+<div class="adminPostPage">
+  <%= form_with(model: @event, local: true, url: choose_new_or_edit) do |f| %>
+  <% if @event.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= @event.errors.count %>件のエラーがあります</h2>
+    <ul>
+        <% @event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+    </ul>
+  </div>
+<% end %>
+  <header class="header">
+    <div>新規イベント作成</div>
+  </header>
+  <div class='container'>
+    <label for="file_photo" class="rounded-circle userProfileImg">
+      <div class="userProfileImg_description">イベントイメージをアップロード</div>
+      <i class="fas fa-camera fa-3x"></i>
+      <%= image_tag(@event.image.url) if @event.image.url %>
+      <%= f.file_field :image, id: "file_photo" %>
+    </label>
+    <div class="postImgPreview" id="postImgPreview">
+      <img id="thumbnail" class="postImgPreview_content" accept="image/*" src="">
+      <p class="userImgPreview_text">画像をアップロード済み</p>
+    </div>
+    <div class="form-group">
+      <label>イベント名</label>
+      <%= f.text_field :title, class: "form-control", placeholder: "名前を入力してください" %>
+    </div>
+    <div class="form-group">
+      <label>最大参加人数(1~100人)</label>
+      <%= f.number_field :number, class: "form-control",in: 1...101, :size=>"30*40" %>
+    </div>
+    <div class="form-group">
+      <label>イベント開始時間（予定）</label>
+      <%= f.datetime_select :starttime, class: "form-control", placeholder: "開始時間を入力してください"  %>
+    </div>
+    <div class="form-group">
+      <label>イベント終了時間（予定）</label>
+      <%= f.datetime_select :endtime, class: "form-control", placeholder: "終了時間を入力してください" %>
+    </div>
+    <div class="form-group">
+      <label>詳細</label>
+      <%= f.text_area :content, maxlength: "500",:size=>"85*400", rows:"400",class:"form-control",placeholder:"イベントの詳細を記入してください（場所や行う内容など）" %>
+    </div>
+    <div class="form-group">
+      <label>イベント受付締め切り時間</label>
+      <%= f.datetime_select :deadline, class: "form-control", placeholder: "締め切り時間を入力してください" %>
+    </div>
+    <div class="text-center">
+      <%= f.submit "確認画面へ", class: "btn adminSubmitBtn" %>
+    </div>
+    <% end %>
+  </div>
+</div>

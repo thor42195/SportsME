@@ -64,9 +64,11 @@ https://docs.google.com/spreadsheets/d/1BPMjsod_EXpzf8FyxYQhgPgkMqn1BNr_XqzTd0Gy
 ## 使用予定Gem
   - devise
   - fullcalender
+  - momentjs-rails
   - carrerwave
   - mini_magick
   - CanCanCan
   - bootstrap
   - jquery-rails
   - font-awesome-sass
+  - seed-fu (for test data)

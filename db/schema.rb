@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181117083317) do
+ActiveRecord::Schema.define(version: 20181119055940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "events", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "content", null: false
+    t.text "image"
+    t.integer "number", null: false
+    t.datetime "starttime", null: false
+    t.datetime "endtime", null: false
+    t.datetime "deadline", null: false
+    t.bigint "organizer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "place"
+    t.index ["organizer_id"], name: "index_events_on_organizer_id"
+  end
 
   create_table "organizers", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,12 +38,12 @@ ActiveRecord::Schema.define(version: 20181117083317) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name", limit: 100, default: "", null: false
-    t.string "introduction", limit: 500
+    t.string "name", limit: 100, default: "No Name", null: false
+    t.string "introduction", limit: 500, default: "No Introduction"
     t.string "group", default: "", null: false
     t.integer "number"
     t.text "icon"
-    t.integer "sport"
+    t.string "sport", default: ""
     t.index ["email"], name: "index_organizers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_organizers_on_reset_password_token", unique: true
   end
@@ -50,4 +65,5 @@ ActiveRecord::Schema.define(version: 20181117083317) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "events", "organizers"
 end

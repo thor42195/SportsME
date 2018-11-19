@@ -1,0 +1,65 @@
+<%= render'admin-header'%>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-6 col-md-6">
+      <div class="wrapper">
+        <div class="column profile-image">
+          <div class="info">
+            <% @manage.each do |manage| %>
+            <table class="table" style="table-layout:fixed;width:100%;" border="1">
+              <colgroup>
+                  <col style="width:40%;">
+                  <col style="width:60%;">
+              </colgroup>
+            <thead>
+              <tr>
+                <%= image_tag manage.icon.url(:thumb)  if manage.icon.url(:thumb)%>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">イベント名</th>
+                <td><%= manage.title %></td>
+              </tr>
+              <tr>
+                <th scope="row">最大参加人数</th>
+                <td><%= manage.number %></td>
+              </tr>
+              <tr>
+                <th scope="row">イベント時間</th>
+                <td><%= manage.starttime.strftime("%Y-%m-%d %H:%M:%S") %>
+                  ~ <%= manage.endtime.strftime("%Y-%m-%d %H:%M:%S") %>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">イベント締め切り</th>
+                <td><%= manage.deadline.strftime("%Y-%m-%d %H:%M:%S") %>まで</td>
+              </tr>
+              <tr>
+                <th scope="row">紹介文</th>
+                <td><%= manage.introduction %></td>
+              </tr>
+            </tbody>
+          </table>
+                <div class='userAction'>
+                  <div class="userAction_edit userAction_common">
+                      <%= link_to '編集', edit_event_path(event.id), class: 'btn btn-info' %>
+					            <%= link_to '削除',  organizers_path(event.id), method: :delete, data:{confirm: 'イベントを削除してもよろしいですか？?'},class: 'btn btn-danger' %>
+                    <span>編集</span>
+                  </div>
+                </div>
+              <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-6 col-md-6">
+      <div class="column cat2">
+        <div class="info">
+        <%= link_to "イベント管理", organizers_path,class: "btn btn-outline-danger info_bar" %><br>
+        <%= link_to "新規イベント", new_event_path,class: "btn btn-outline-danger info_bar" %><br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
