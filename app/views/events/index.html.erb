@@ -8,6 +8,7 @@
   <meta charset="UTF-8">
 </head>
 <body>
+	<%= render"layouts/user-header"%>
 	<p><%= notice %></p>
 	<div class="container">
 		<div class="row">
@@ -17,6 +18,9 @@
 		<div class="card" style="padding:10px">
       <div class="card-header">
 				イベント名：<%= event.title%>
+      </div>
+			<div class="card-header">
+				イベント主催者:
       </div>
 			<div class="card-header">
 				場所：<%= event.place%>
@@ -35,9 +39,7 @@
 		 <div class="card-header">
 			 <%= event.content%>
 			 <div class="picture-edit">
-					   <%= link_to '参加する', event_path(event.id),{class:"btn btn-primary"} %>
-						 <%= link_to 'ブックマークする', event_path(event.id),{class:"btn btn-danger"} %>
-						 <%= link_to '興味あり', event_path(event.id),{class:"btn btn-info"} %>
+				 <%= link_to '詳細', event_path(event.id),{class:"btn btn-primary"} %>
 			 </div>
 		 </div>
 		 <% end %>

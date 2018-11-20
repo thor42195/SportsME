@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181119055940) do
+ActiveRecord::Schema.define(version: 20181119161143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "events", force: :cascade do |t|
     t.string "title", null: false
@@ -28,6 +35,13 @@ ActiveRecord::Schema.define(version: 20181119055940) do
     t.datetime "updated_at", null: false
     t.string "place"
     t.index ["organizer_id"], name: "index_events_on_organizer_id"
+  end
+
+  create_table "interests", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "organizers", force: :cascade do |t|
@@ -46,6 +60,13 @@ ActiveRecord::Schema.define(version: 20181119055940) do
     t.string "sport", default: ""
     t.index ["email"], name: "index_organizers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_organizers_on_reset_password_token", unique: true
+  end
+
+  create_table "paticipants", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

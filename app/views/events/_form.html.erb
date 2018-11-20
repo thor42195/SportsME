@@ -1,3 +1,4 @@
+<%= render"layouts/admin-header"%>
 <div class="adminPostPage">
   <%= form_with(model: @event, local: true, url: choose_new_or_edit) do |f| %>
   <% if @event.errors.any? %>

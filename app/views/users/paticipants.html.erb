@@ -1,0 +1,34 @@
+<%= render"layouts/user-header"%>
+<div class='usershowPage'>
+<h2>参加予定イベント</h2>
+<div class="container">
+  <div class="row">
+    <% @paticipants_event.reverse_each do |paticipant| %>
+    <div class="col-xs-12 col-md-6 picture-panel"></div>
+  </div>
+  <div class="card" style="padding:10px">
+    <div class="card-header">
+      イベント名：<%= paticipant.title%>
+    </div>
+    <div class="card-header">
+      イベント主催者:
+    </div>
+    <div class="card-header">
+      場所：<%= paticipant.place%>
+    </div>
+    <div class="card-header">
+      日程：<%= paticipant.starttime.strftime("%Y-%m-%d %H:%M:%S")%>
+        ~ <%= paticipant.endtime.strftime("%Y-%m-%d %H:%M:%S")%>
+        （申し込み期限:<%= paticipant.deadline.strftime("%Y-%m-%d %H:%M:%S")%>）
+    </div>
+    <div class="card-header">
+      参加人数：『後で追加する』/<%= paticipant.number%>
+    </div>
+    <% if paticipant.image %>
+        <%= image_tag(paticipant.image, :class =>"card-image")%>
+   <% end %>
+   <div class="card-header">
+     <%= paticipant.content%>
+   </div>
+   <% end %>
+</div>

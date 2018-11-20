@@ -1,0 +1,34 @@
+<%= render"layouts/user-header"%>
+<div class='usershowPage'>
+<h2>ブックマーク一覧</h2>
+<div class="container">
+  <div class="row">
+    <% @bookmarks_event.reverse_each do |bookmark| %>
+    <div class="col-xs-12 col-md-6 picture-panel"></div>
+  </div>
+  <div class="card" style="padding:10px">
+    <div class="card-header">
+      イベント名：<%= bookmark.title%>
+    </div>
+    <div class="card-header">
+      イベント主催者:
+    </div>
+    <div class="card-header">
+      場所：<%= bookmark.place%>
+    </div>
+    <div class="card-header">
+      日程：<%= bookmark.starttime.strftime("%Y-%m-%d %H:%M:%S")%>
+        ~ <%= bookmark.endtime.strftime("%Y-%m-%d %H:%M:%S")%>
+        （申し込み期限:<%= bookmark.deadline.strftime("%Y-%m-%d %H:%M:%S")%>）
+    </div>
+    <div class="card-header">
+      参加人数：『後で追加する』/<%= bookmark.number%>
+    </div>
+    <% if bookmark.image %>
+        <%= image_tag(bookmark.image, :class =>"card-image")%>
+   <% end %>
+   <div class="card-header">
+     <%= bookmark.content%>
+   </div>
+   <% end %>
+</div>

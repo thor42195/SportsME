@@ -7,6 +7,9 @@ Rails.application.routes.draw do
       post :confirm
     end
   end
+  get '/users/interests/:id', to:'users#interests'
+  get '/users/bookmarks/:id', to:'users#bookmarks'
+  get '/users/paticipants/:id', to:'users#paticipants'
 
   devise_for :organizers, controllers: {
   sessions:      'organizers/sessions',
@@ -25,6 +28,8 @@ Rails.application.routes.draw do
     end
   end
   get '/events/manage', to:'events#manage' #all events for organizers to manage
+  resources :interests, only: [:create, :destroy] # user can keep event as interests
+  resources :bookmarks, only: [:create, :destroy]
+  resources :paticipants, only: [:create, :destroy]
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

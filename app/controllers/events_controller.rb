@@ -11,6 +11,9 @@ class EventsController < ApplicationController
   end
 
   def show
+    @interest = current_user.interests.find_by(event_id: @event.id)
+    @bookmark = current_user.bookmarks.find_by(event_id: @event.id)
+    @user_interests = @event.interests.includes(:user).order(:created_at)
   end
 
   def new
