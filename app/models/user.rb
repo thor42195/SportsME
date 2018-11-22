@@ -13,20 +13,22 @@ class User < ApplicationRecord
   # user will join event
   has_many :paticipants, dependent: :destroy
   has_many :paticipant_event, through: :paticipants, source: :event
-
+  # user can follow other user
   has_many :active_reactions,class_name:  "Reaction", foreign_key: "follower_id", dependent: :destroy
   has_many :following, through: :active_reactions
-
+  # user can be followed by other user
   has_many :passive_reactions, class_name: "Reaction", foreign_key: "following_id", dependent: :destroy
   has_many :followers, through: :passive_reactions, source: :follower
+  # user has chat room to each user and can chat with 
+  has_many :chat_messages
+  has_many :chat_room_users
 
   def following?(other_user)
     following.include?(other_user)
   end
 
   def matchers
-    User.where(id: passive_reactions.select(:follower_id))
-     .where(id: active_reactions.select(:following_id))
+    following & followers
   end
 
   mount_uploader :icon, ImgNameUploader

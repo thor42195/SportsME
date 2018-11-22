@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only:[:show, :edit, :update, :destroy]
+  before_action :set_user, only:[:show]
 
   def index
     @events = Event.all
@@ -28,7 +29,6 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.organizer_id = current_organizer.id
     render :new  if @event.invalid?
-
   end
 
   def create
@@ -68,6 +68,10 @@ class EventsController < ApplicationController
 
     def set_event
       @event = Event.find(params[:id])
+    end
+
+    def set_user
+      @user = User.find_by(id: params[:id])
     end
 
 end

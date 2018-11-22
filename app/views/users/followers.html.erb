@@ -1,14 +1,13 @@
 <%= render'layouts/user-header'%>
-<h2>友達リクエスト一覧</h2>
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item">
-    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">友達</a>
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">友達一覧</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">友達リクエスト済み</a>
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">友達リクエスト済</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="follower-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">友達リクエスト許可待ち</a>
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">届いているリクエスト</a>
   </li>
 </ul>
 <div class="tab-content" id="myTabContent">
@@ -29,6 +28,10 @@
             <h5 class="card-title"><%= matcher.name%>さん</h5>
             <h6 class="card-title">好きなスポーツ：<%= matcher.sport%></h6>
             <p class="card-text"><%= matcher.introduction%></p>
+            <%= form_tag :chat_index, method: :post do %>
+              <input name="user_id" type="hidden" value="<%= @user.id %>" />
+              <%= submit_tag 'チャットを開く', class: "chatForm_btn" %>
+            <% end %>
          </div>
        </div>
       </div>
@@ -58,28 +61,34 @@
      </div>
    <% end %>
   </div>
-  <div class="tab-pane fade" id="follower" role="tabpanel" aria-labelledby="follower-tab">
-    <div class="container">
-      <div class="row">
-        <% @follower.reverse_each do |follower| %>
-        <div class="col-xs-12 col-md-6 picture-panel"></div>
-      </div>
-      <div class="card-group">
-        <div class="card">
-          <% if follower.icon.url(:thumb)%>
-            <%= image_tag follower.icon.url(:thumb) %>
-          <% else %>
-            <%= image_tag ("noimage.jpg")%>
-          <% end %>
-          <div class="card-body">
-            <h5 class="card-title"><%= follower.name%>さん</h5>
-            <h6 class="card-title">好きなスポーツ：<%= follower.sport%></h6>
-            <p class="card-text"><%= follower.introduction%></p>
+  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+    <div class="tab-pane fade" id="follower" role="tabpanel" aria-labelledby="follower-tab">
+      <div class="container">
+        <div class="row">
+          <% @follower.reverse_each do |follower| %>
+          <div class="col-xs-12 col-md-6 picture-panel"></div>
+        </div>
+        <div class="card-group">
+          <div class="card">
+            <% if follower.icon.url(:thumb)%>
+              <%= image_tag follower.icon.url(:thumb) %>
+            <% else %>
+              <%= image_tag ("noimage.jpg")%>
+            <% end %>
+            <div class="card-body">
+              <h5 class="card-title"><%= follower.name%>さん</h5>
+              <h6 class="card-title">好きなスポーツ：<%= follower.sport%></h6>
+              <p class="card-text"><%= follower.introduction%></p>
+              <%if current_user.following?(@user) %>
+                <div class='btn alert-danger' id='liked'>友達リクエスト送信済</div>
+              <% else %>
+                <%= render 'follow', {reaction: @reaction} %>
+              <% end %>
+           </div>
          </div>
+        </div>
        </div>
-      </div>
-     </div>
-   <% end %>
+     <% end %>
   </div>
 </div>
-<div class='usershowPage'>
+</div>

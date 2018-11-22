@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only:[:index, :show, :interests, :bookmarks, :paticipants, :followers]
+  before_action :set_reaction, only:[:index,:followers]
 
   def index
-    @reaction = Reaction.new
   end
 
   def show
@@ -28,5 +28,9 @@ class UsersController < ApplicationController
   private
     def set_user
       @user = User.find_by(id: params[:id])
+    end
+
+    def set_reaction
+      @reaction = Reaction.new
     end
 end

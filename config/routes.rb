@@ -33,5 +33,6 @@ Rails.application.routes.draw do
   resources :bookmarks, only: [:create, :destroy]
   resources :paticipants, only: [:create, :destroy]
   resources :reactions, only: [:index, :create]
+  resources :chat, only: [:create, :show]
 
 end
