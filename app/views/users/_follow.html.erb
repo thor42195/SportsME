@@ -1,0 +1,8 @@
+<%= form_with(model: @reaction, local: true) do |form| %>
+  <%= hidden_field_tag :following_id, @user.id %>
+  <%= form.submit  "友達リクエストを送信する", class: "btn adminSubmitBtn" %>
+<% end %>
+
+<script>
+$("#follow_form").html(`<div class="btn">友達リクエスト送信済</div>`)
+</script>

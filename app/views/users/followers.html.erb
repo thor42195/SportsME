@@ -1,0 +1,85 @@
+<%= render'layouts/user-header'%>
+<h2>友達リクエスト一覧</h2>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">友達</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">友達リクエスト済み</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="follower-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">友達リクエスト許可待ち</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <div class="container">
+      <div class="row">
+        <% @matchers.reverse_each do |matcher| %>
+        <div class="col-xs-12 col-md-6 picture-panel"></div>
+      </div>
+      <div class="card-group">
+        <div class="card">
+          <% if matcher.icon.url(:thumb)%>
+            <%= image_tag matcher.icon.url(:thumb) %>
+          <% else %>
+            <%= image_tag ("noimage.jpg")%>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title"><%= matcher.name%>さん</h5>
+            <h6 class="card-title">好きなスポーツ：<%= matcher.sport%></h6>
+            <p class="card-text"><%= matcher.introduction%></p>
+         </div>
+       </div>
+      </div>
+     </div>
+   <% end %>
+  </div>
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+    <div class="container">
+      <div class="row">
+        <% @following.reverse_each do |following| %>
+        <div class="col-xs-12 col-md-6 picture-panel"></div>
+      </div>
+      <div class="card-group">
+        <div class="card">
+          <% if following.icon.url(:thumb)%>
+            <%= image_tag following.icon.url(:thumb) %>
+          <% else %>
+            <%= image_tag ("noimage.jpg")%>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title"><%= following.name%>さん</h5>
+            <h6 class="card-title">好きなスポーツ：<%= following.sport%></h6>
+            <p class="card-text"><%= following.introduction%></p>
+         </div>
+       </div>
+      </div>
+     </div>
+   <% end %>
+  </div>
+  <div class="tab-pane fade" id="follower" role="tabpanel" aria-labelledby="follower-tab">
+    <div class="container">
+      <div class="row">
+        <% @follower.reverse_each do |follower| %>
+        <div class="col-xs-12 col-md-6 picture-panel"></div>
+      </div>
+      <div class="card-group">
+        <div class="card">
+          <% if follower.icon.url(:thumb)%>
+            <%= image_tag follower.icon.url(:thumb) %>
+          <% else %>
+            <%= image_tag ("noimage.jpg")%>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title"><%= follower.name%>さん</h5>
+            <h6 class="card-title">好きなスポーツ：<%= follower.sport%></h6>
+            <p class="card-text"><%= follower.introduction%></p>
+         </div>
+       </div>
+      </div>
+     </div>
+   <% end %>
+  </div>
+</div>
+<div class='usershowPage'>

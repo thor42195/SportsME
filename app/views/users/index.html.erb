@@ -31,7 +31,13 @@
               </tr>
             </tbody>
           </table>
-            <!-- 友達リクエストを送れるようにする-->
+          <div class='userInfo_name'>
+            <%if current_user.following?(@user) %>
+              <div class='btn alert-danger' id='liked'>友達リクエスト送信済</div>
+            <% else %>
+              <%= render 'follow', {reaction: @reaction} %>
+            <% end %>
+          </div>
           </div>
         </div>
       </div>

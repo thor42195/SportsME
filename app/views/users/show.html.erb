@@ -31,7 +31,7 @@
         <%= link_to(content_tag(:i, "ブックマーク", class: 'btn btn-outline-danger info_bar'), :controller  => "users",:action => "bookmarks") %><br>
         <%= link_to(content_tag(:i, "興味あるイベント", class: 'btn btn-outline-danger info_bar'), :controller  => "users",:action => "interests") %><br>
         <%= link_to "チャット", current_user,class: "btn btn-outline-danger info_bar" %><br>
-        <%= link_to "友達リクエスト", current_user,class: "btn btn-outline-danger info_bar" %>
+        <%= link_to(content_tag(:i, "友達リクエスト", class: 'btn btn-outline-danger info_bar'), :controller  => "users",:action => "followers") %>
         </div>
       </div>
     </div>

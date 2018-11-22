@@ -15,7 +15,11 @@
       </div>
       <div class="card-header">
         <!-- 参加予定の人数をカウントして、追加する-->
-        参加人数：『後で追加する』/<%= @event.number%>
+        <% if @event.paticipants.count < @event.number %>
+          参加人数：<%= @event.paticipants.count %>/<%= @event.number %>
+        <% else %>
+          定員数に達したので、参加できません。
+        <% end%>
       </div>
       <% if @event.image %>
         <%= image_tag(@event.image, :class =>"card-image")%>
@@ -75,7 +79,6 @@
              </div>
              <div class="modal-footer">
                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-               <button type="button" class="btn btn-primary">Save changes</button>
              </div>
            </div>
          </div>

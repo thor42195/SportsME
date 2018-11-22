@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/users/interests/:id', to:'users#interests'
   get '/users/bookmarks/:id', to:'users#bookmarks'
   get '/users/paticipants/:id', to:'users#paticipants'
+  get '/users/followers/:id', to:'users#followers'
 
   devise_for :organizers, controllers: {
   sessions:      'organizers/sessions',
@@ -31,5 +32,6 @@ Rails.application.routes.draw do
   resources :interests, only: [:create, :destroy] # user can keep event as interests
   resources :bookmarks, only: [:create, :destroy]
   resources :paticipants, only: [:create, :destroy]
+  resources :reactions, only: [:index, :create]
 
 end
