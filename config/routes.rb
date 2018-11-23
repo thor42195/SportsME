@@ -34,5 +34,6 @@ Rails.application.routes.draw do
   resources :paticipants, only: [:create, :destroy]
   resources :reactions, only: [:index, :create]
   resources :chat, only: [:create, :show]
+  resources :matching, only: %i(index)
 
 end

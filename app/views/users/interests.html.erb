@@ -22,7 +22,7 @@
         （申し込み期限:<%= interest.deadline.strftime("%Y-%m-%d %H:%M:%S")%>）
     </div>
     <div class="card-header">
-      参加人数：『後で追加する』/<%= interest.number%>
+      興味を持っている人：<%= interest.interests.count%>
     </div>
     <% if interest.image %>
         <%= image_tag(interest.image, :class =>"card-image")%>

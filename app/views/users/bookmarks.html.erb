@@ -22,7 +22,7 @@
         （申し込み期限:<%= bookmark.deadline.strftime("%Y-%m-%d %H:%M:%S")%>）
     </div>
     <div class="card-header">
-      参加人数：『後で追加する』/<%= bookmark.number%>
+      ブックマークした人：<%= bookmark.bookmarks.count%>
     </div>
     <% if bookmark.image %>
         <%= image_tag(bookmark.image, :class =>"card-image")%>
