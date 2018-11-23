@@ -57,7 +57,8 @@
     <div class="col-xs-6 col-md-6">
       <div class="column cat2">
         <div class="info">
-        <%= link_to "イベント管理", events_manage_path,class: "btn btn-outline-danger info_bar" %><br>
+        <%= link_to(content_tag(:i, "イベント管理", class: 'btn btn-outline-danger info_bar'), :controller  => "events",:action => "manage") %><br>
+        <%= link_to "イベント管理", organizer_path,class: "btn btn-outline-danger info_bar" %><br>
         <%= link_to "新規イベント", new_event_path,class: "btn btn-outline-danger info_bar" %><br>
         </div>
       </div>

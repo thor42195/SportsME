@@ -1,9 +1,9 @@
 class OrganizersController < ApplicationController
+  before_action :authenticate_organizer!
   before_action :set_organizer, only:[:index, :show]
 
   def index
     @events = Event.all
-    @manage = @events.all.find_by(id: current_organizer.id)
   end
 
   def show

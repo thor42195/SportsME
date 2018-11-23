@@ -1,14 +1,10 @@
 class EventsController < ApplicationController
   before_action :set_event, only:[:show, :edit, :update, :destroy]
   before_action :set_user, only:[:show]
+  before_action :set_organizer, only:[:show]
 
   def index
     @events = Event.all
-  end
-
-  def manage
-    @events = Event.all
-    @organizers = Organizer.all
   end
 
   def show
@@ -72,6 +68,10 @@ class EventsController < ApplicationController
 
     def set_user
       @user = User.find_by(id: params[:id])
+    end
+
+    def set_organizer
+      @organizer = Organizer.find_by(id: params[:id])
     end
 
 end
