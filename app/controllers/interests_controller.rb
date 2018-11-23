@@ -1,12 +1,16 @@
 class InterestsController < ApplicationController
 
   def create
-    interest = current_user.interests.create(event_id: params[:event_id])
-    redirect_to events_url, notice:"このイベントに興味あることを公開しました"
+    @interest = current_user.interests.create(event_id: params[:event_id])
+    if @interest.save
+      redirect_back(fallback_location: events_path)
+    end
   end
 
   def destroy
-    interest = current_user.interests.find_by(id: params[:id]).destroy
-    redirect_to events_url, notice:"このイベントへの興味を解除しました"
+    @interest = current_user.interests.find_by(id: params[:id]).destroy
+    if @interest.save
+      redirect_back(fallback_location: events_path)
+    end
   end
 end
