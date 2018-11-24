@@ -30,7 +30,8 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/events/manage', to:'events#manage' #all events for organizers to manage
+  get 'search', to:'events#search'
+  
   resources :interests, only: [:create, :destroy] # user can keep event as interests
   resources :bookmarks, only: [:create, :destroy]
   resources :paticipants, only: [:create, :destroy]

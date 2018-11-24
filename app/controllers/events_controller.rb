@@ -2,9 +2,13 @@ class EventsController < ApplicationController
   before_action :set_event, only:[:show, :edit, :update, :destroy]
   before_action :set_user, only:[:show]
   before_action :set_organizer, only:[:show]
+  before_action :set_search, only:[:index,:search]
 
   def index
     @events = Event.all
+  end
+
+  def search
   end
 
   def show
@@ -75,6 +79,15 @@ class EventsController < ApplicationController
 
     def set_organizer
       @organizer = Organizer.find_by(id: params[:id])
+    end
+
+    def set_search
+      @search = Event.ransack(params[:q])
+      @finding = @search.result(distinct: true)
+    end
+
+    def search_params
+      params.require(:search).permit!
     end
 
 end

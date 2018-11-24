@@ -10,10 +10,9 @@
     </div>
   <% end %>
   <div class="field">
-    <%= form.label :コメント %>
-    <%= form.text_area :content %>
+    <%= form.text_area :content,placeholder:"コメント",:size=>"30*50" %>
   </div>
   <div class="actions">
-    <%= form.submit "コメント投稿" %>
+    <%= form.submit "コメント投稿",class: "btn btn-outline-success my-2 my-sm-0" %>
   </div>
 <% end %>
