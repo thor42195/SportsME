@@ -47,6 +47,22 @@
 			 <div class="picture-edit">
 					 <%= link_to '詳細', event_path(event.id),{class:"btn btn-primary"} %>
 			 </div>
+			 <div class="card-footer">
+
+	       <div id="comment-event-<%= event.id.to_s %>">
+	              <%= render 'comment_list', { event: event } %>
+	            </div>
+	            <%= link_to time_ago_in_words(event.created_at).upcase + "前", event_path(event),
+	              class: "light-color event-time no-text-decoration" %>
+	            <hr>
+	            <div class="row actions" id="comment-form-event-<%= event.id.to_s %>">
+	              <%= form_for [event, Comment.new], html: { class: "w-100" }, remote: true do |f| %>
+	                <%= f.hidden_field :user_id, value: current_user.id %>
+	                <%= f.hidden_field :event_id, value: event.id %>
+	                <%= f.text_field :content, class: "form-control comment-input border-0", placeholder: "コメント ...", autocomplete: :off %>
+	              <% end %>
+	            </div>
+	     </div>
 		 </div>
 		 <% end %>
    </div>

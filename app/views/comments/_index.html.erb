@@ -1,0 +1,11 @@
+<ul>
+  <% comments.each do |comment| %>
+    <% if comment.id.present? %>
+      <ul>
+        <strong><%= comment.user.name %>さん</strong>
+        <%= comment.content %>
+        <%= time_ago_in_words(comment.created_at).upcase + "前" %>
+      </ul>
+    <% end %>
+  <% end %>
+</ul>

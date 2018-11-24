@@ -1,0 +1,15 @@
+<% if @interest.present? %>
+  <%= link_to '興味ありを解除する', interest_path(id: @interest.id), method: :delete, class: 'btn btn-danger' %>
+<% else %>
+  <%= link_to '興味あり', interests_path(event_id: @event.id), method: :event, class: 'btn btn-info' %>
+<% end %>
+<% if @bookmark.present? %>
+  <%= link_to 'ブックマークを解除する', bookmark_path(id: @bookmark.id), method: :delete, class: 'btn btn-danger' %>
+<% else %>
+  <%= link_to 'ブックマークする', bookmarks_path(event_id: @event.id), method: :event, class: 'btn btn-info' %>
+<% end %>
+<% if @paticipant.present? %>
+  <%= link_to '参加をキャンセルする', paticipant_path(id: @paticipant.id), method: :delete, class: 'btn btn-danger' %>
+<% else %>
+  <%= link_to '参加予定にする', paticipants_path(event_id: @event.id), method: :event, class: 'btn btn-info' %>
+<% end %>

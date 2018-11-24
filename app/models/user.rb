@@ -19,9 +19,12 @@ class User < ApplicationRecord
   # user can be followed by other user
   has_many :passive_reactions, class_name: "Reaction", foreign_key: "following_id", dependent: :destroy
   has_many :followers, through: :passive_reactions, source: :follower
-  # user has chat room to each user and can chat with 
+  # user has chat room to each user and can chat with
   has_many :chat_messages
   has_many :chat_room_users
+
+  has_many :comments, dependent: :destroy
+  has_many :comment_event, through: :comments, source: :event
 
   def following?(other_user)
     following.include?(other_user)

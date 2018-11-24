@@ -24,10 +24,12 @@ Rails.application.routes.draw do
   end
 
   resources :events do
+    resources :comments
     collection do
       post :confirm
     end
   end
+
   get '/events/manage', to:'events#manage' #all events for organizers to manage
   resources :interests, only: [:create, :destroy] # user can keep event as interests
   resources :bookmarks, only: [:create, :destroy]
