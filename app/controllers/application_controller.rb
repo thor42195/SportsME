@@ -12,8 +12,11 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     case resource
       when User
+        flash[:notice] = "ログインに成功しました"
         current_user
       when Organizer
+        flash[:notice] = "ログインに成功しました"
+        flash[:alert] = "ログアウトしました"
         current_organizer
     end
   end

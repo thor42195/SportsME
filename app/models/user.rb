@@ -14,10 +14,10 @@ class User < ApplicationRecord
   has_many :paticipants, dependent: :destroy
   has_many :paticipant_event, through: :paticipants, source: :event
   # user can follow other user
-  has_many :active_reactions,class_name:  "Reaction", foreign_key: "follower_id", dependent: :destroy
-  has_many :following, through: :active_reactions
+  has_many :active_reactions, foreign_key: 'follower_id', class_name: 'Reaction', dependent: :destroy
+  has_many :following, through: :active_reactions, source: :followed
   # user can be followed by other user
-  has_many :passive_reactions, class_name: "Reaction", foreign_key: "following_id", dependent: :destroy
+  has_many :passive_reactions, foreign_key: 'followed_id', class_name: 'Reaction', dependent: :destroy
   has_many :followers, through: :passive_reactions, source: :follower
   # user has chat room to each user and can chat with
   has_many :chat_messages
@@ -26,8 +26,16 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :comment_event, through: :comments, source: :event
 
+  def follow!(other_user)
+    active_reactions.create(followed_id: other_user.id)
+  end
+
   def following?(other_user)
-    following.include?(other_user)
+    active_reactions.find_by(followed_id: other_user.id)
+  end
+
+  def unfollow!(other_user)
+    active_reactions.find_by(followed_id: other_user.id).destroy
   end
 
   def matchers

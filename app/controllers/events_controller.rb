@@ -90,12 +90,7 @@ class EventsController < ApplicationController
     end
 
     def set_search
-      @search = Event.ransack(params[:q])
+      @search = Event.ransack(params[:search])
       @finding = @search.result(distinct: true)
     end
-
-    def search_params
-      params.require(:search).permit!
-    end
-
 end

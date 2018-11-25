@@ -1,8 +1,12 @@
-<%= form_with(model: @reaction, local: true) do |form| %>
-  <%= hidden_field_tag :following_id, @user.id %>
-  <%= form.submit  "友達リクエストを送信する", class: "btn adminSubmitBtn" %>
-<% end %>
-
-<script>
-$("#follow_form").html(`<div class="btn">友達リクエスト送信済</div>`)
-</script>
+<div id="follow_form_<%= @user.id %>">
+  <% unless current_user.following?(@user) %>
+    <%= form_with(model: current_user.active_reactions.build(followed_id: @user.id)) do |f| %>
+      <%= f.hidden_field :followed_id %>
+      <%= f.submit "友達リクエスト送信" , class: "btn adminSubmitBtn"%>
+    <% end %>
+  <% else %>
+    <%= form_with(model: current_user.active_reactions.find_by(followed_id: @user.id), method: :delete ) do |f| %>
+      <%= f.submit "友達リクエスト解除", class: "btn adminSubmitBtn" %>
+    <% end %>
+  <% end %>
+</div>

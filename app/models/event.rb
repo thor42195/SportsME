@@ -13,4 +13,9 @@ class Event < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   mount_uploader :image, ImgNameUploader
+
+  def self.ransackable_attributes auth_object = nil
+    %w(title place)
+  end
+
 end
