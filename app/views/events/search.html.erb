@@ -1,7 +1,7 @@
 <%= render "layouts/user-header"%>
 <h1>検索結果</h1>
   <%= link_to "イベント一覧に戻る",events_path ,{class:"btn btn-primary"}%>
-  <%= @finding.each do |find| %>
+  <% @finding.each do |find| %>
   <div class="card" style="padding:10px">
     <div class="card-header">
       イベント名：<%= find.title%>
