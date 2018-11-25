@@ -1,5 +1,4 @@
-<%= render "layouts/admin-header"%>
-<body
+<body>
 	<p><%= notice %></p>
 	<div>
 		<div class="row">
@@ -38,10 +37,7 @@
 		 <div class="card-header">
 			 <%= event.content%>
 			 <div class="picture-edit">
-				 <% if  current_organizer.id == event.organizer_id  %>
-				 <%= link_to '削除',  event_path(event.id), method: :delete, data:{confirm: 'Are you sure?'},class: 'btn btn-danger' %>
-				 <%#= link_to '編集', edit_event_path(event.id), class: 'btn btn-info' %>
-          <% end %>
+					 <%= link_to '詳細', event_path(event.id),{class:"btn btn-primary"} %>
 			 </div>
 		 </div>
 		 <% end %>

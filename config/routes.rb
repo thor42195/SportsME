@@ -29,9 +29,11 @@ Rails.application.routes.draw do
       post :confirm
     end
   end
+  resources :manage
+  get 'manage/events/:id', to:'events#manage'
 
   get 'search', to:'events#search'
-  
+
   resources :interests, only: [:create, :destroy] # user can keep event as interests
   resources :bookmarks, only: [:create, :destroy]
   resources :paticipants, only: [:create, :destroy]

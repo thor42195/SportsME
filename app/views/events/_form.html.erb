@@ -11,10 +11,10 @@
     </ul>
   </div>
 <% end %>
-  <header class="header">
-    <div>新規イベント作成</div>
-  </header>
   <div class='container'>
+    <header class="header">
+      <div>新規イベント作成</div>
+    </header>
     <label for="file_photo" class="rounded-circle userProfileImg">
       <div class="userProfileImg_description">イベントイメージをアップロード</div>
       <i class="fas fa-camera fa-3x"></i>
@@ -50,7 +50,7 @@
       <%= f.datetime_select :deadline, class: "form-control", placeholder: "締め切り時間を入力してください" %>
     </div>
     <div class="text-center">
-      <%= f.submit "確認画面へ", class: "btn adminSubmitBtn" %>
+      <%= f.submit  class: "btn adminSubmitBtn" %>
     </div>
     <% end %>
   </div>

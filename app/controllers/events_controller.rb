@@ -1,8 +1,8 @@
 class EventsController < ApplicationController
-  before_action :set_event, only:[:show, :edit, :update, :destroy]
+  before_action :set_event, only:[:manage,:show, :edit, :update, :destroy]
   before_action :set_user, only:[:show]
   before_action :set_organizer, only:[:show]
-  before_action :set_search, only:[:index,:search]
+  before_action :set_search, only:[:index,:manage,:search]
 
   def index
     @events = Event.all
@@ -18,6 +18,10 @@ class EventsController < ApplicationController
     @user_interests = @event.interests.includes(:user).order(:created_at)
     @comments = @event.comments
     @comment = @event.comments.build
+  end
+
+  def manage
+    @events = Event.all
   end
 
   def new
@@ -39,7 +43,7 @@ class EventsController < ApplicationController
     @event.organizer_id = current_organizer.id
 
     if @event.save
-       redirect_to @current_organizer, notice: "新規イベントを作成しました"
+       redirect_back fallback_location: {action: "index"}
     else
       render 'new'
     end
@@ -60,8 +64,12 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @event.destroy
-    redirect_to events_path, notice:"削除しました"
+    if current_organizer.id != @event.organizer_id
+      redirect_back fallback_location: {action: "manage"}
+    else
+      @event.destroy
+      redirect_back fallback_location: {action: "manage"}
+    end
   end
 
   private
