@@ -35,6 +35,8 @@
     - 同じイベントに興味があるユーザーのみ利用可能
     - 気になるユーザーに友達リクエストを送れる
     - リクエストを承認すると、チャットをすることができる
+  - コメント機能
+  　- イベントに対してコメントできる
   - チャット機能
     - 友達になったユーザーにメッセージを送れる
 
@@ -72,3 +74,4 @@ https://docs.google.com/spreadsheets/d/1BPMjsod_EXpzf8FyxYQhgPgkMqn1BNr_XqzTd0Gy
   - jquery-rails
   - font-awesome-sass
   - seed-fu (for test data)
+  - ransack
