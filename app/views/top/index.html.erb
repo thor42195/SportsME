@@ -1,22 +1,87 @@
-<div class="top">
-  <%= render 'top-header'%>
-  <div class="loginPage">
-    <div class="container">
-      <%= image_tag "top-image.jpg", class:"top-page " %>
-      <div class="loginPage_contents">
-        <h1 class="h4 loginPage_contents_title">スポーツを通じて新しい自分を発見しよう</h1>
-        <%= link_to "ログインする", new_user_session_path, class: "btn loginPage_contents_btn_1" %>
-        <%= link_to "新規登録する", new_user_registration_path, class: "btn loginPage_contents_btn_2" %>
-        <%= link_to "イベント主催者の方はこちら", new_organizer_registration_path, class: "btn loginPage_contents_btn_3" %>
-      </div>
-      <div class="service-overview">
-        <h1>SportMEとは</h1>
-        <h2>スポーツに参加したいけど勇気が出ない人同士を繋げるマッチングサイトです。</h2>
-      </div>
+<link href='https://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+
+<div class="containers">
+  <div class"row">
+    <div class="overlay">
+      <h1>SportME</h1>
+      <p>スポーツを通じて新しい自分を発見しよう<br>スポーツに参加したい人同士で繋がる</p>
     </div>
-    <div class="container">
-      <div class="service-feature">
-      </div>
-    </div>
-    </div>
+  </div>
+  <div class="row">
+    <nav>
+      <ul>
+        <li><%= link_to "ログインする", new_user_session_path , class: "btn loginPage_contents_btn_1"%></li>
+        <li><%= link_to "新規登録する", new_user_registration_path, class: "btn loginPage_contents_btn_1" %></li>
+        <li><%= link_to "イベント主催者の方はこちら", new_organizer_registration_path, class: "btn loginPage_contents_btn_2" %></li>
+        <li>contact</li>
+     </ul>
+   </nav>
+  </div>
 </div>
+<style>
+nav ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+nav li {
+    width: 20rem;
+    height: 7rem;
+    font-size: 20px;
+    text-align: center;
+    line-height: 7rem;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    transition: 0.3s;
+    margin: 3rem;
+}
+
+nav li::before,
+nav li::after {
+    content: '';
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    top: 0;
+    left: 0;
+    transition: 0.3s;
+}
+
+nav li::before {
+    background-color: white;
+    z-index: -1;
+    box-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+
+nav li::after {
+    background-color: goldenrod;
+    transform: translate(1.5rem, 1.5rem);
+    z-index: -2;
+}
+
+nav li:hover {
+    transform: translate(1.5rem, 1.5rem);
+    color: white;
+}
+
+nav li:hover::before {
+    background-color: goldenrod;
+}
+
+nav li:hover::after {
+    background-color: white;
+    transform: translate(-1.5rem, -1.5rem);
+}
+</style>
+<script>
+var nystories = document.querySelector("p").offsetTop;
+window.onscroll = function() {
+  if (window.pageYOffset > 0) {
+ var opac = (window.pageYOffset / nystories);
+    console.log(opac);
+  document.body.style.background = "linear-gradient(rgba(255, 255, 255, " + opac + "), rgba(255, 255, 255, " + opac + ")), url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/times-square-perspective.jpg) no-repeat";
+  }
+}
+</script>

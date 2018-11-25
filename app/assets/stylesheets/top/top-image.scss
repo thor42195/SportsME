@@ -41,7 +41,7 @@
       padding: 20px;
       margin: 0 auto;
       border-radius: 30px;
-      background: #fd5068;
+      background: #007bff;
       color: #fff;
       position: absolute;
       top: 30%;
@@ -53,22 +53,10 @@
       padding: 20px;
       margin: 0 auto;
       border-radius: 30px;
-      background: #fd5068;
+      background: #007bff;
       color: #fff;
       top: 30%;
-      left:50%;
-      position: absolute;
-    }
-    &_btn_3{
-      display: block;
-      max-width: 400px;
-      padding: 20px;
-      margin: 0 auto;
-      border-radius: 30px;
-      background: #fd5068;
-      color: #fff;
-      top: 50%;
-      left:40%;
+      left:10%;
       position: absolute;
     }
   }
