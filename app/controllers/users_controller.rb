@@ -25,6 +25,7 @@ class UsersController < ApplicationController
     @matchers = current_user.matchers
     @following = @user.following
     @follower = @user.followers
+    @users = User.all
   end
 
   def chat

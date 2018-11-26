@@ -26,7 +26,6 @@ Rails.application.routes.draw do
   get '/users/bookmarks/:id', to:'users#bookmarks'
   get '/users/paticipants/:id', to:'users#paticipants'
   get '/users/followers/:id', to:'users#followers'
-  get '/users/chat', to:'users#chat'
 
   resources :organizers do
     collection do
@@ -48,7 +47,8 @@ Rails.application.routes.draw do
   resources :bookmarks, only: [:create, :destroy]
   resources :paticipants, only: [:create, :destroy]
   resources :reactions, only: [:index, :create, :destroy]
-  resources :chat, only: [:create, :show]
-  resources :matching, only: %i(index)
 
+  resources :chatusers do
+    resources :chatmessages
+  end
 end

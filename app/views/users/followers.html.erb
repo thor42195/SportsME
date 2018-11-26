@@ -28,10 +28,6 @@
             <h5 class="card-title"><%= matcher.name%>さん</h5>
             <h6 class="card-title">好きなスポーツ：<%= matcher.sport%></h6>
             <p class="card-text"><%= matcher.introduction%></p>
-            <%= form_tag :chat_index, method: :post do %>
-              <input name="user_id" type="hidden" value="<%= @user.id %>" />
-              <%= submit_tag 'チャットを開く', class: "chatForm_btn" %>
-            <% end %>
          </div>
        </div>
       </div>
@@ -55,10 +51,7 @@
             <h5 class="card-title"><%= following.name%>さん</h5>
             <h6 class="card-title">好きなスポーツ：<%= following.sport%></h6>
             <p class="card-text"><%= following.introduction%></p>
-            <%= form_tag :chat_index, method: :post do %>
-              <input name="user_id" type="hidden" value="<%= @user.id %>" />
-              <%= submit_tag 'チャットを開く', class: "chatForm_btn" %>
-            <% end %>
+            <%= link_to 'メッセージ', chatusers_path(sender_id: current_user.id, recipient_id: @user.id), method: :post,class: "chatForm_btn" %>
          </div>
        </div>
       </div>
