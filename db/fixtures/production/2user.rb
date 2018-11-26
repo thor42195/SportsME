@@ -2,6 +2,8 @@ User.seed do |s|
   s.id = 1
   s.name = "Cloud"
   s.email = "cloud@user.com"
+  s.password = "testtest"
+  s.password_confirmation = "testtest"
   s.sex = 0
   s.introduction = "こんにちは、ランニングと筋トレが趣味です。"
   s.sport = "オールラウンド"
@@ -13,6 +15,8 @@ User.seed do |s|
   s.id = 2
   s.name = "Daniel"
   s.email = "daniel@user.com"
+  s.password = "testtest"
+  s.password_confirmation = "testtest"
   s.sex = 0
   s.introduction = "こんにちは、最近サッカーを始めました。"
   s.sport = "サッカーとか"
@@ -24,6 +28,8 @@ User.seed do |s|
   s.id = 3
   s.name = "ゴーン"
   s.email = "gone@user.com"
+  s.password = "testtest"
+  s.password_confirmation = "testtest"
   s.sex = 0
   s.introduction = "こんにちは、自転車が趣味でよくヒルクライムをします"
   s.sport = "ロードバイク"
@@ -49,6 +55,8 @@ User.seed do |s|
   s.id = 5
   s.name = "ナミゾウ"
   s.email = "nami@user.com"
+  s.password = "testtest"
+  s.password_confirmation = "testtest"
   s.sex = 1
   s.introduction = "こんにちは、トライアスロンをやっています。"
   s.sport = "ランニング・ロードバイク・スイミング"
@@ -60,6 +68,8 @@ User.seed do |s|
   s.id = 6
   s.name = "花子"
   s.email = "hanako@user.com"
+  s.password = "testtest"
+  s.password_confirmation = "testtest"
   s.sex = 1
   s.introduction = "こんにちは、ダイエットのために筋トレ始めました"
   s.sport = "筋トレ"
