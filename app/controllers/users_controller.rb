@@ -26,6 +26,13 @@ class UsersController < ApplicationController
     @following = @user.following
     @follower = @user.followers
   end
+
+  def chat
+    @matchers = current_user.matchers
+    @following = @user.following
+    @follower = @user.followers
+  end
+
   private
     def set_user
       @user = User.find_by(id: params[:id])

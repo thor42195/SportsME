@@ -1,6 +1,9 @@
 class ReactionsController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+  end
+  
   def create
     @user = User.find(params[:reaction][:followed_id])
     current_user.follow!(@user)

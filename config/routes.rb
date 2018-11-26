@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get '/users/bookmarks/:id', to:'users#bookmarks'
   get '/users/paticipants/:id', to:'users#paticipants'
   get '/users/followers/:id', to:'users#followers'
+  get '/users/chat', to:'users#chat'
 
   resources :organizers do
     collection do
