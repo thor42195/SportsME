@@ -46,7 +46,7 @@ Reaction.seed do |s|
   s.created_at = "2018-10-10 00:20:00"
   s.updated_at = "2018-10-15 00:20:00"
 end
-
+=begin
 Reaction.seed do |s|
   s.id = 7
   s.follower_id = 1
@@ -95,3 +95,5 @@ Reaction.seed do |s|
   s.created_at = "2018-10-10 00:20:00"
   s.updated_at = "2018-10-15 00:20:00"
 end
+
+=end
