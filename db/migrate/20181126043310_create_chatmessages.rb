@@ -1,7 +1,6 @@
 class CreateChatmessages < ActiveRecord::Migration[5.1]
 
   def change
-    drop_table :chatmessages
     create_table :chatmessages do |t|
       t.text :body
       t.references :chatuser, index: true, foreign_key: true
