@@ -25,6 +25,7 @@
             <h5 class="card-title"><%= matcher.name%>さん</h5>
             <h6 class="card-title">好きなスポーツ：<%= matcher.sport%></h6>
             <p class="card-text"><%= matcher.introduction%></p>
+            <% binding.pry %>
               <%= link_to 'メッセージ', chatusers_path(sender_id: current_user.id, recipient_id: @user.id), method: :post,class: "chatForm_btn" %>
          </div>
        </div>
@@ -51,7 +52,7 @@
               <h6 class="card-title">好きなスポーツ：<%= follower.sport%></h6>
               <p class="card-text"><%= follower.introduction%></p>
               <%if current_user.following?(@user) %>
-                <div class='btn alert-danger' id='liked'>友達リクエスト送信済</div>
+                <div class='btn alert-danger' id='liked'>友達になりました</div>
               <% else %>
                 <%= render 'follow', {reaction: @reaction} %>
               <% end %>
