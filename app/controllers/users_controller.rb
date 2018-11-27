@@ -22,10 +22,9 @@ class UsersController < ApplicationController
   end
 
   def followers
-    @matchers = current_user.matchers
+    @users = User.all
     @following = @user.following
     @follower = @user.followers
-    @users = User.all
   end
 
   def chat

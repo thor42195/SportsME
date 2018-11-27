@@ -13,34 +13,24 @@
       <div class="row">
         <div class="col-xs-12 col-md-6 picture-panel"></div>
       </div>
-      <h2>ユーザー</h2>
-<% @users.each do |user| %>
-  <% if user.id != current_user.id %>
-    <li>
-      <div class="item">
-        <%= link_to user.name, user %>
-        <%= link_to 'メッセージ', chatusers_path(sender_id: current_user.id, recipient_id: user.id), method: :post %>
-      </div>
-    </li>
-     <!-- フォロー機能が実装されて入ればこの一文も必要 -->
-  <% end %>
-<% end %>
-      <% @matchers.reverse_each do |matcher| %>
+      <% @users.each do |user| %>
+      <% if user.id != current_user.id %>
       <div class="card-group">
         <div class="card">
-          <% if matcher.icon.url(:thumb)%>
-            <%= image_tag matcher.icon.url(:thumb) %>
+          <% if user.icon.url(:thumb)%>
+            <%= image_tag user.icon.url(:thumb) %>
           <% else %>
             <%= image_tag ("noimage.jpg")%>
           <% end %>
           <div class="card-body">
-            <h5 class="card-title"><%= matcher.name%>さん</h5>
-            <h6 class="card-title">好きなスポーツ：<%= matcher.sport%></h6>
-            <p class="card-text"><%= matcher.introduction%></p>
-              <%= link_to 'メッセージ', chatusers_path(sender_id: current_user.id, recipient_id: @user.id), method: :post,class: "chatForm_btn" %>
+            <h5 class="card-title"><%= user.name%>さん</h5>
+            <h6 class="card-title">好きなスポーツ：<%= user.sport%></h6>
+            <p class="card-text"><%= user.introduction%></p>
+              <%= link_to 'メッセージ', chatusers_path(sender_id: current_user.id, recipient_id: user.id), method: :post,class: "chatForm_btn" %>
          </div>
        </div>
       </div>
+      <% end %>
       <% end %>
      </div>
   </div>

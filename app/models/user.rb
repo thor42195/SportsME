@@ -39,8 +39,11 @@ class User < ApplicationRecord
   end
 
   def matchers
-    following & followers
+    User.where(id: passive_reactions.select(:follower_id))
+       .where(id: active_reactions.select(:followed_id))
   end
+
+
 
   mount_uploader :icon, ImgNameUploader
   enum sex: { 男: 0, 女: 1 }
