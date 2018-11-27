@@ -10,7 +10,7 @@
                 <% if @organizer.icon.url(:thumb) %>
                   <%= image_tag @organizer.icon.url(:thumb),:size => "200*200",class: 'img-responsive' %>
                 <% else %>
-                  <%= image_tag "noimage" %>
+                  <%= image_tag "noimage.jpg" %>
                 <% end %>
               </div>
               <div class='userInfo_name'>管理者名：<%= @organizer.name%></div>
