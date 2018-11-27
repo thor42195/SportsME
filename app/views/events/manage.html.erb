@@ -1,5 +1,5 @@
 <%= render "layouts/admin-header"%>
-<%= Time.now%><br>
+<%= Time.now.strftime('%Y-%m')%><br>
 <%= @events.find(1).starttime.class.name%>
 <body>
 	<p><%= notice %></p>

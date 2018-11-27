@@ -39,6 +39,7 @@ class EventsController < ApplicationController
   end
 
   def create
+    binding.pry
     @event = Event.new(event_params)
     @event.organizer_id = current_organizer.id
     if @event.save
