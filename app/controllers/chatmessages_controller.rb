@@ -26,7 +26,7 @@ class ChatmessagesController < ApplicationController
   def create
     @chatmessage = @chatuser.chatmessages.build(chatmessage_params)
     if @chatmessage.save
-      redirect_back(fallback_location: chatuser_chatmessages_path(@chatuser))
+      redirect_to chatuser_chatmessages_path(@chatuser)
     else
       render 'index'
     end
