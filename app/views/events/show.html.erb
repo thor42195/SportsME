@@ -12,6 +12,7 @@
         日程：<%= @event.starttime.strftime("%Y-%m-%d %H:%M")%>
          ~ <%= @event.endtime.strftime("%Y-%m-%d %H:%M")%>
         （申し込み期限:<%= @event.deadline.strftime("%Y-%m-%d %H:%M")%>）
+        <%#.strftime("%Y-%m-%d %H:%M")%>
       </div>
       <div class="card-header">
         <!-- 参加予定の人数をカウントして、追加する-->
@@ -22,7 +23,7 @@
         <% end%>
       </div>
       <% if @event.image %>
-        <%= image_tag(@event.image, :class =>"card-image")%>
+        <%= image_tag(@event.image, :class =>"card-image",:width=>"600", height:"500")%>
       <% end %>
       <div class="card-body"><%= @event.content%></div>
       <div class="card-footer">

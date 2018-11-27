@@ -20,9 +20,8 @@
 				場所：<%= event.place%>
       </div>
 			<div class="card-header">
-				日程：<%= event.starttime.strftime("%Y-%m-%d %H:%M")%>
-	        ~ <%= event.endtime.strftime("%Y-%m-%d %H:%M")%>
-					（申し込み期限:<%= event.deadline.strftime("%Y-%m-%d %H:%M")%>）
+				日程：<%= event.startdate%>
+					（申し込み期限:<%= event.duedate%>）
       </div>
 			<div class="card-header">
 				<% if event.paticipants.count < event.number %>

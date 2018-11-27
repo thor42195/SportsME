@@ -8,9 +8,12 @@
   <%= form.hidden_field :title %>
   <%= form.hidden_field :content %>
   <%= form.hidden_field :number %>
+  <%= form.hidden_field :startdate %>
   <%= form.hidden_field :starttime %>
+  <%= form.hidden_field :enddate %>
   <%= form.hidden_field :endtime %>
-  <%= form.hidden_field :deadline %>
+  <%= form.hidden_field :duedate %>
+  <%= form.hidden_field :duetime %>
   <div class="form-group">
     <h2>イベント名:<%= @event.title %></h2>
       <%= image_tag(@event.image.url) %>
@@ -38,8 +41,8 @@
     </tr>
     <tr>
       <th scope="row">イベント予定時間:</th>
-      <td><%= @event.starttime.strftime("%Y-%m-%d %H:%M:%S")%>
-        ~ <%= @event.endtime.strftime("%Y-%m-%d %H:%M:%S")%>
+      <td><%= @event.startdate.strftime("%Y年%m月%d日")%><%= @event.starttime.strftime("%H:%M")%>
+        ~ <%= @event.enddate.strftime("%Y年%m月%d日")%><%= @event.endtime.strftime("%H:%M")%>
       </td>
     </tr>
     <tr>
@@ -48,7 +51,7 @@
     </tr>
     <tr>
       <th scope="row">申し込み締め切り:</th>
-      <td><%= @event.deadline.strftime("%Y-%m-%d %H:%M:%S") %>まで</td>
+      <td><%= @event.duedate.strftime("%Y年%m月%d日") %><%= @event.duetime.strftime("%H:%M") %>まで</td>
     </tr>
   </tbody>
 </table>
@@ -60,8 +63,12 @@
 <%= form.hidden_field :title %>
 <%= form.hidden_field :content %>
 <%= form.hidden_field :number %>
+<%= form.hidden_field :startdate %>
 <%= form.hidden_field :starttime %>
+<%= form.hidden_field :enddate %>
 <%= form.hidden_field :endtime %>
-<%= form.hidden_field :deadline %>
+<%= form.hidden_field :duedate %>
+<%= form.hidden_field :duetime %>
+
   <%= form.submit "もどる",name: 'back', class: "btn" %>
 <% end %>
