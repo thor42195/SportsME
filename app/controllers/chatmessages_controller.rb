@@ -7,12 +7,12 @@ class ChatmessagesController < ApplicationController
     @chatmessages = @chatuser.chatmessages
     if @chatmessages.length > 10
       @over_ten = true
-      @chatmessage= Chatmessage.where(id: @chatmessages[-10..-1].pluck(:id))
+      @chatmessage = Chatmessage.where(id: @chatmessages[-10..-1].pluck(:id))
     end
 
     if params[:m]
       @over_ten = false
-      @chatmessage= @chatuser.messages
+      @chatmessage = @chatuser.chatmessages
     end
 
     if @chatmessages.last
@@ -26,7 +26,6 @@ class ChatmessagesController < ApplicationController
   def create
     @chatmessage = @chatuser.chatmessages.build(chatmessage_params)
     if @chatmessage.save
-      redirect_back fallback_location: {action: "index"}
       redirect_back fallback_location: {action: "index"}
     else
       render 'index'
