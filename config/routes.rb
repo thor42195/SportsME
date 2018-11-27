@@ -41,7 +41,8 @@ Rails.application.routes.draw do
   end
 
   get 'manage/events/:id', to:'events#manage'
-  get 'search', to:'events#search'
+  get 'searchUser', to:'events#searchUuser'
+  get 'searchOrganizer', to:'events#searchOrganizer'
 
   resources :interests, only: [:create, :destroy] # user can keep event as interests
   resources :bookmarks, only: [:create, :destroy]

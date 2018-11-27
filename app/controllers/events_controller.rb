@@ -2,13 +2,16 @@ class EventsController < ApplicationController
   before_action :set_event, only:[:manage,:show, :edit, :update, :destroy]
   before_action :set_user, only:[:show]
   before_action :set_organizer, only:[:show]
-  before_action :set_search, only:[:index,:manage,:search]
+  before_action :set_search, only:[:index,:manage,:searchUser,:searchOrganizer]
 
   def index
     @events = Event.all
   end
 
-  def search
+  def searchUser
+  end
+
+  def searchOrganizer
   end
 
   def show
