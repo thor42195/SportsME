@@ -9,9 +9,9 @@
         場所：<%= @event.place%>
       </div>
       <div class="card-header">
-        日程：<%= @event.startdate%><%= @event.starttime.strftime(" %H:%M")%>
-         ~ <%= @event.enddate%><%= @event.endtime.strftime(" %H:%M")%>
-        （申し込み期限:<%= @event.duedate%><%= @event.duetime.strftime(" %H:%M")%>）
+        日程：<%= @event.startdate%><%= @event.starttime%>
+         ~ <%= @event.enddate%><%= @event.endtime%>
+        （申し込み期限:<%= @event.duedate%><%= @event.duetime%>）
       </div>
       <div class="card-header">
         <!-- 参加予定の人数をカウントして、追加する-->
