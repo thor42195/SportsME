@@ -1,40 +1,50 @@
 <%= render "layouts/admin-header"%>
 <h1>検索結果</h1>
-  <%= link_to "イベント一覧に戻る",events_path ,{class:"btn btn-primary"}%>
-  <% @finding.each do |find| %>
-  <div class="card" style="padding:10px">
-    <div class="card-header">
-      イベント名：<%= find.title%>
-    </div>
-    <div class="card-header">
-      イベント主催者:<%= find.organizer.name%>
-      <!--イベント主催者のプロフィールページに飛べるようにする-->
-      <%#= link_to 'プロフィール', organizers_path(id: find.organizer.id), class: 'btn btn-info' %>
-    </div>
-    <div class="card-header">
-      場所：<%= find.place%>
-    </div>
-    <div class="card-header">
-      日程：<%= find.starttime%>
-        （申し込み期限:<%= find.duedate%>）
-    </div>
-    <div class="card-header">
-    <% if find.paticipants.count < find.number %>
-      参加人数：<%= find.paticipants.count %>/<%= find.number %>
-    <% else %>
-      定員数に達したので、参加できません。（参加人数：<%= find.number %>）
-    <% end%>
-    </div>
-    <% if find.image %>
-      <%= image_tag(find.image, :class =>"card-image")%>
-    <% end %>
-    <div class="card-footer">
-      <div class="picture-edit">
-        <% if  current_organizer.id == event.organizer_id  %>
-        <%= link_to '削除',  event_path(event.id), method: :delete, data:{confirm: '本当に削除しますか？'},class: 'btn btn-danger' %>
-        <%= link_to '編集',  edit_event_path(event.id), class: 'btn btn-info'  %>
-         <% end %>
-      </div>
-    </div>
+<div>
+			<div class="row">
+				<% @finding.each do |find| %>
+				<div class="col-xs-12 col-md-6 picture-panel">
+					<div class="card" style="padding:10px">
+						<div class="card-header">
+					  イベント名：<%= find.title%>
+	          </div>
+				  <div class="card-header">
+					  イベント主催者:<%= find.organizer.name%>
+					<!--イベント主催者のプロフィールページに飛べるようにする-->
+					<%#= link_to 'プロフィール', organizers_path(id: event.organizer.id), class: 'btn btn-info' %>
+	        </div>
+				  <div class="card-header">
+				  	場所：<%= find.place%>
+	        </div>
+				  <div class="card-header">
+					  日程：<%= find.startdate %>
+						  （申し込み期限:<%=find.duedate %>）
+	        </div>
+				  <div class="card-header">
+				  	<% if find.paticipants.count < find.number %>
+	            参加人数：<%= find.paticipants.count %>/<%= find.number %>
+	          <% else %>
+	            定員数に達したので、参加できません。（参加人数：<%= find.number %>）
+	          <% end%>
+	        </div>
+				  <div class="card-image">
+				  <% if find.image %>
+					  <%= image_tag(find.image,:width=>"600", height:"500")%>
+				  <% else %>
+				    <%= image_tag("noimage") %>
+			    <% end %>
+		     </div>
+			   <div class="card-header">
+				 <%= find.content%>
+				   <div class="picture-edit">
+             <% if  current_organizer.id == find.organizer_id  %>
+             <%= link_to '削除',  event_path(find.id), method: :delete, data:{confirm: '本当に削除しますか？'},class: 'btn btn-danger' %>
+             <%= link_to '編集',  edit_event_path(find.id), class: 'btn btn-info'  %>
+              <% end %>
+				   </div>
+			   </div>
+	     </div>
+	  </div>
+		 <% end %>
+	 </div>
  </div>
-<% end %>
