@@ -15,9 +15,8 @@
       場所：<%= find.place%>
     </div>
     <div class="card-header">
-      日程：<%= find.starttime.strftime("%Y-%m-%d %H:%M")%>
-       ~<%= find.endtime.strftime("%Y-%m-%d %H:%M")%>
-        （申し込み期限:<%= find.deadline.strftime("%Y-%m-%d %H:%M")%>）
+      日程：<%= find.starttime%>
+        （申し込み期限:<%= find.duedate%>）
     </div>
     <div class="card-header">
     <% if find.paticipants.count < find.number %>
