@@ -1,7 +1,7 @@
 <%= render "layouts/admin-header"%>
 <div class="adminPostPage">
   <header class="header">
-    <div>以下の内容で、イベントを作成する</div>
+    <div>以下の内容で、イベントを作成/更新する</div>
   </header>
 <%= form_with(model: @event, url: events_path, local: true) do |form| %>
   <%= form.hidden_field :image_cache %>
@@ -13,13 +13,13 @@
   <%= form.hidden_field :deadline %>
   <div class="form-group">
     <h2>イベント名:<%= @event.title %></h2>
-      <%= image_tag(@event.image.url) %>
+      <%= image_tag(@event.image.url, :size => "300*300") %>
   </div>
 
   <table class="table" style="table-layout:fixed;width:100%;" border="1">
     <colgroup>
-        <col style="width:20%;">
-        <col style="width:80%;">
+        <col style="width:30%;">
+        <col style="width:70%;">
     </colgroup>
   <thead>
     <tr>
@@ -38,8 +38,8 @@
     </tr>
     <tr>
       <th scope="row">イベント予定時間:</th>
-      <td><%= @event.starttime.strftime("%Y-%m-%d %H:%M:%S")%>
-        ~ <%= @event.endtime.strftime("%Y-%m-%d %H:%M:%S")%>
+      <td><%= @event.starttime.strftime("%Y年%m月%d日 %H:%M")%>
+        ~ <%= @event.endtime.strftime("%Y年%m月%d日 %H:%M")%>
       </td>
     </tr>
     <tr>
@@ -48,7 +48,7 @@
     </tr>
     <tr>
       <th scope="row">申し込み締め切り:</th>
-      <td><%= @event.deadline.strftime("%Y-%m-%d %H:%M:%S") %>まで</td>
+      <td><%= @event.deadline.strftime("%Y年%m月%d日 %H:%M") %>まで</td>
     </tr>
   </tbody>
 </table>

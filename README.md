@@ -75,3 +75,4 @@ https://docs.google.com/spreadsheets/d/1BPMjsod_EXpzf8FyxYQhgPgkMqn1BNr_XqzTd0Gy
   - font-awesome-sass
   - seed-fu (for test data)
   - ransack
+  - validates_timeliness

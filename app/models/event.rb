@@ -1,4 +1,13 @@
 class Event < ApplicationRecord
+  validates :title, presence: true, length: { in: 1..50}
+  validates :content, presence: true, length: { in: 1..500}
+  validates :number, presence: true, length: { in: 1..100}
+  #validates_time :starttime, :after => lambda { Date.current },
+  #                              :after_message => 'は、現在よりも後に設定してください'
+  #validates_time :endtime, :after => :starttime,
+  #                              :after_message => 'は開始時間よりも後に設定してください'
+  #validates_time :deadline, :before => :starttime,
+  #                              :before_message => 'は開始時間よりも前に設定してください'
   belongs_to :organizer
 
   has_many :interests, dependent: :destroy

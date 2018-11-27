@@ -18,7 +18,7 @@
                   <col style="width:70%;">
               </colgroup>
             <thead>
-              <tr><%= image_tag @user.icon.url(:thumb)  if @user.icon.url(:thumb)%></tr>
+              <tr></tr>
             </thead>
             <tbody>
               <tr>
@@ -37,7 +37,7 @@
           </table>
           <div class='userInfo_name'>
             <%if current_user.following?(@user) %>
-              <div class='btn alert-danger' id='liked'>友達リクエスト送信済</div>
+              <div class='btn alert-danger' id='liked'>友達になっています</div>
             <% else %>
               <%= render 'follow', {reaction: @reaction} %>
             <% end %>

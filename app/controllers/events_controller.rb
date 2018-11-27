@@ -41,9 +41,8 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.organizer_id = current_organizer.id
-
     if @event.save
-       redirect_back fallback_location: {action: "index"}
+       redirect_to current_organizer
     else
       render 'new'
     end
@@ -51,13 +50,13 @@ class EventsController < ApplicationController
 
   def edit
     if current_organizer.id != @event.organizer_id
-      redirect_to root_path
+      redirect_back fallback_location: {action: "manage"}
     end
   end
 
   def update
     if @event.update(event_params)
-      redirect_to event_path, notice:"更新しました"
+      redirect_to current_organizer
     else
       render 'new'
     end
@@ -74,7 +73,7 @@ class EventsController < ApplicationController
 
   private
     def event_params
-      params.require(:event).permit(:title, :content, :image, :image_cache, :number, :day, :starttime, :endtime, :deadline)
+      params.require(:event).permit(:title, :content, :image, :image_cache, :number, :day, :starttime, :endtime, :deadline,:created_at,:updated_at)
     end
 
     def set_event
