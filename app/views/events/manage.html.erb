@@ -12,8 +12,6 @@
           </div>
 			  <div class="card-header">
 				  イベント主催者:<%= event.organizer.name%>
-				<!--イベント主催者のプロフィールページに飛べるようにする-->
-				<%#= link_to 'プロフィール', organizers_path(id: event.organizer.id), class: 'btn btn-info' %>
         </div>
 			  <div class="card-header">
 			  	場所：<%= event.place%>
@@ -42,7 +40,6 @@
 				   <% if  current_organizer.id == event.organizer_id  %>
 				   <%= link_to '削除',  event_path(event.id), method: :delete, data:{confirm: '本当に削除しますか？'},class: 'btn btn-danger' %>
 				   <%= link_to '編集',  edit_event_path(event.id), class: 'btn btn-info'  %>
-				   <%#= link_to '編集', edit_event_path(event.id), class: 'btn btn-info' %>
             <% end %>
 			   </div>
 		   </div>
