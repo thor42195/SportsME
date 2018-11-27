@@ -27,6 +27,7 @@ class ChatmessagesController < ApplicationController
     @chatmessage = @chatuser.chatmessages.build(chatmessage_params)
     if @chatmessage.save
       redirect_back fallback_location: {action: "index"}
+      redirect_back fallback_location: {action: "index"}
     else
       render 'index'
     end
