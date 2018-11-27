@@ -32,7 +32,7 @@ class Event < ApplicationRecord
   end
 
   def enddate_after_startdate
-    errors.add(:enddate, 'は開始日よりも後の日程を設定してください') if enddate.nil? ||  startdate < enddate
+    errors.add(:enddate, 'は開始日よりも後の日程を設定してください') if enddate.nil? ||  enddate < startdate
   end
 
   def duedate_is_first
