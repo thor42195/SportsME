@@ -1,7 +1,7 @@
 <%= render "layouts/admin-header"%>
 <body>
 	<p><%= notice %></p>
-		<%= render "searchOrganizer-form"%>
+		<%= render "events/searchOrganizer-form"%>
 	<div>
 		<div class="row">
 			<% @events.reverse_each do |event| %>

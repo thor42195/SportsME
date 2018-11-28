@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
 
   authenticated :organizer do
-    root :to => "events#manage"
+    root :to => "organizers#index"
   end
 
   devise_for :organizers, controllers: {
@@ -40,9 +40,9 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'manage/events/:id', to:'events#manage'
   get 'searchUser', to:'events#searchUuser'
   get 'searchOrganizer', to:'events#searchOrganizer'
+
 
   resources :interests, only: [:create, :destroy] # user can keep event as interests
   resources :bookmarks, only: [:create, :destroy]

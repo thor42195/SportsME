@@ -1,5 +1,6 @@
 <%= render "layouts/admin-header"%>
 <h1>検索結果</h1>
+<%= link_to "イベント一覧に戻る",organizers_path ,{class:"btn btn-primary"}%>
 <div>
 			<div class="row">
 				<% @finding.each do |find| %>

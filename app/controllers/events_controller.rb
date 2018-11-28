@@ -1,8 +1,8 @@
 class EventsController < ApplicationController
-  before_action :set_event, only:[:manage,:show, :edit, :update, :destroy]
+  before_action :set_event, only:[:show, :edit, :update, :destroy]
   before_action :set_user, only:[:show]
   before_action :set_organizer, only:[:show]
-  before_action :set_search, only:[:index,:manage,:searchUser,:searchOrganizer]
+  before_action :set_search, only:[:index, :searchUser,:searchOrganizer]
 
   def index
     @events = Event.all
@@ -21,10 +21,6 @@ class EventsController < ApplicationController
     @user_interests = @event.interests.includes(:user).order(:created_at)
     @comments = @event.comments
     @comment = @event.comments.build
-  end
-
-  def manage
-    @events = Event.all
   end
 
   def new
