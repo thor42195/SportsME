@@ -9,14 +9,21 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: %i(name introduction sex icon sport number group))
   end
 
+
   def after_sign_in_path_for(resource)
     case resource
       when User
-        flash[:notice] = "ログインに成功しました"
         current_user
       when Organizer
-        flash[:notice] = "ログインに成功しました"
-        flash[:alert] = "ログアウトしました"
+        current_organizer
+    end
+  end
+
+  def after_update_path_for(resource)
+    case resource
+      when User
+        current_user
+      when Organizer
         current_organizer
     end
   end

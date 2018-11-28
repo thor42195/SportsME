@@ -41,4 +41,5 @@ class UsersController < ApplicationController
     def set_reaction
       @reaction = Reaction.new
     end
+
 end

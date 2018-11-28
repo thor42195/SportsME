@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers:{
+  sessions:      'devise/sessions',
+  passwords:     'devise/passwords',
+  registrations: 'devise/registrations'
+  }
   authenticated :user do
-    root :to => "events#index"
+    root :to => 'events#index'
   end
 
   authenticated :organizer do
