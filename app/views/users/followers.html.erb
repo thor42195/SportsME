@@ -44,7 +44,7 @@
         <div class="card-group">
           <div class="card">
             <% if follower.icon.url(:thumb)%>
-              <%= image_tag follower.icon.url(:thumb) %>
+              <%= image_tag follower.icon.url(:thumb),:width=>"600", height:"500" %>
             <% else %>
               <%= image_tag ("noimage.jpg")%>
             <% end %>
