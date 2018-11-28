@@ -17,9 +17,8 @@
       場所：<%= paticipant.place%>
     </div>
     <div class="card-header">
-      日程：<%= paticipant.starttime.strftime("%Y-%m-%d %H:%M:%S")%>
-        ~ <%= paticipant.endtime.strftime("%Y-%m-%d %H:%M:%S")%>
-        （申し込み期限:<%= paticipant.deadline.strftime("%Y-%m-%d %H:%M:%S")%>）
+      日程：<%= paticipant.startdate%>
+        （申し込み期限:<%= paticipant.duedate%>）
     </div>
     <div class="card-header">
       参加人数：<%= paticipant.paticipants.count%>/<%= paticipant.number%>

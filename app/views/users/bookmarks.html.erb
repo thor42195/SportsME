@@ -17,9 +17,8 @@
       場所：<%= bookmark.place%>
     </div>
     <div class="card-header">
-      日程：<%= bookmark.starttime.strftime("%Y-%m-%d %H:%M:%S")%>
-        ~ <%= bookmark.endtime.strftime("%Y-%m-%d %H:%M:%S")%>
-        （申し込み期限:<%= bookmark.deadline.strftime("%Y-%m-%d %H:%M:%S")%>）
+      日程：<%= bookmark.startdate%>
+        （申し込み期限:<%= bookmark.duedate%>）
     </div>
     <div class="card-header">
       ブックマークした人：<%= bookmark.bookmarks.count%>
