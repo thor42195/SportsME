@@ -2,8 +2,12 @@ class ChatmessagesController < ApplicationController
   before_action do
     @chatuser = Chatuser.find(params[:chatuser_id])
   end
+  before_action :set_user, only:[:index]
 
   def index
+    if @chatuser.sender_id != current_user.id && @chatuser.recipient_id != current_user.id
+      redirect_to current_user
+    end
     @chatmessages = @chatuser.chatmessages
     if @chatmessages.length > 10
       @over_ten = true
@@ -35,5 +39,9 @@ class ChatmessagesController < ApplicationController
   private
     def chatmessage_params
       params.require(:chatmessage).permit(:body, :user_id)
+    end
+
+    def set_user
+      @user = User.find_by(id: params[:id])
     end
 end
