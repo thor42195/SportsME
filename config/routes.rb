@@ -44,7 +44,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'searchUser', to:'events#searchUuser'
+  get 'searchUser', to:'events#searchUser'
   get 'searchOrganizer', to:'events#searchOrganizer'
 
 
