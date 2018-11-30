@@ -9,4 +9,13 @@ class Organizer < ApplicationRecord
 
   has_many :events, dependent: :destroy
   mount_uploader :icon, ImgNameUploader
+
+  validates :name, presence:true
+  validates :group, presence:true
+  validates :sport, presence:true
+  validates :number, presence:true
+  validates :password, presence:true
+  validates :password_confirmation, presence:true
+  validates :introduction, presence:true
+  validates :icon, presence:true
 end

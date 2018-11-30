@@ -3,6 +3,7 @@ ja:
     models:
       event: "イベント"
       user: "ユーザー"
+      organizer: "イベント管理者"
     attributes:
       event:
         title: "タイトル"
@@ -19,3 +20,16 @@ ja:
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
+      organizer:
+        title: "タイトル"
+        name: "名前"
+        email: "メールアドレス"
+        current_password: "現在のパスワード"
+        password: "パスワード"
+        password_confirmation: "確認用パスワード"
+        remember_me: "ログインを記憶"
+        sport: "スポーツ種別"
+        group: "団体名"
+        number: "電話番号"
+        introduction: "紹介文"
+        icon: "画像"

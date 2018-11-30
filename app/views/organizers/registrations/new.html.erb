@@ -47,10 +47,6 @@
         <i class="fas fa-camera fa-3x"></i>
         <%= f.file_field :icon, id: "file_photo" %>
       </label>
-      <div class="adminImgPreview" id="adminImgPreview">
-        <img id="thumbnail" class="adminImgPreview_content" accept="image/*" src="">
-        <p class="adminImgPreview_text">画像をアップロード済み</p>
-      </div>
       <div class="text-center">
         <%= f.submit "はじめる", class: "btn submitBtn" %>
         <%= render "organizers/shared/links" %>
