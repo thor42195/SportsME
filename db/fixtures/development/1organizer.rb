@@ -34,3 +34,17 @@ Organizer.seed do |s|
   s.created_at = "2018-10-10 00:20:00"
   s.updated_at = "2018-10-15 00:20:00"
 end
+
+
+Organizer.seed do |s|
+  s.id = 4
+  s.name = "テスター"
+  s.email = "test@admin.com"
+  s.password = "testtest"
+  s.group = "test sport"
+  s.introduction = "こんにちは、私たちのグループは様々なアクティビティを通して、スポーツを楽しんでもらうイベントを開催しています"
+  s.number = "0479-00-7777"
+  s.sport = "オールラウンド"
+  s.created_at = "2018-10-10 00:20:00"
+  s.updated_at = "2018-10-15 00:20:00"
+end
