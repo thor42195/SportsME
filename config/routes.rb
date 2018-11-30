@@ -9,16 +9,15 @@ Rails.application.routes.draw do
     root :to => 'events#index'
   end
 
-  authenticated :organizer do
-    root :to => "organizers#index"
-  end
-
   devise_for :organizers, controllers: {
   sessions:      'organizers/sessions',
   passwords:     'organizers/passwords',
   registrations: 'organizers/registrations'
   }
 
+  authenticated :organizer do
+    root :to => "organizers#index"
+  end
   root to: 'top#index'
 
   resources :users do

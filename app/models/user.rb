@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :name, presence:true
+  validates :password_confirmation, presence:true
+
   # user has interested in event and want to share interest to other
   has_many :interests, dependent: :destroy
   has_many :interest_event, through: :interests, source: :event
@@ -42,8 +45,6 @@ class User < ApplicationRecord
     User.where(id: passive_reactions.select(:follower_id))
        .where(id: active_reactions.select(:followed_id))
   end
-
-
 
   mount_uploader :icon, ImgNameUploader
   enum sex: { 男: 0, 女: 1 }
