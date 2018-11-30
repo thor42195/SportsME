@@ -15,7 +15,8 @@ class ChatusersController < ApplicationController
   end
 
   private
-    def chatusers_params
-      params.permit(:sender_id, :recipient_id)
-    end
+
+  def chatusers_params
+    params.permit(:sender_id, :recipient_id)
+  end
 end

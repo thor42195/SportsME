@@ -11,12 +11,13 @@ class OrganizersController < ApplicationController
   end
 
   private
-    def set_organizer
-      @organizer = Organizer.find_by(id: params[:id])
-    end
 
-    def set_search
-      @search = Event.ransack(params[:search])
-      @finding = @search.result(distinct: true)
-    end
+  def set_organizer
+    @organizer = Organizer.find_by(id: params[:id])
+  end
+
+  def set_search
+    @search = Event.ransack(params[:search])
+    @finding = @search.result(distinct: true)
+  end
 end

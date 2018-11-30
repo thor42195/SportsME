@@ -37,11 +37,12 @@ class ChatmessagesController < ApplicationController
   end
 
   private
-    def chatmessage_params
-      params.require(:chatmessage).permit(:body, :user_id)
-    end
 
-    def set_user
-      @user = User.find_by(id: params[:id])
-    end
+  def chatmessage_params
+    params.require(:chatmessage).permit(:body, :user_id)
+  end
+
+  def set_user
+    @user = User.find_by(id: params[:id])
+  end
 end

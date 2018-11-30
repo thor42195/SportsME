@@ -34,12 +34,12 @@ class UsersController < ApplicationController
   end
 
   private
-    def set_user
-      @user = User.find_by(id: params[:id])
-    end
 
-    def set_reaction
-      @reaction = Reaction.new
-    end
+  def set_user
+    @user = User.find_by(id: params[:id])
+  end
 
+  def set_reaction
+    @reaction = Reaction.new
+  end
 end

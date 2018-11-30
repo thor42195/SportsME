@@ -71,24 +71,25 @@ class EventsController < ApplicationController
   end
 
   private
-    def event_params
-      params.require(:event).permit(:title, :content, :image, :image_cache, :number, :day, :startdate,:starttime, :enddate,:endtime, :duetime, :duedate)
-    end
 
-    def set_event
-      @event = Event.find(params[:id])
-    end
+  def event_params
+    params.require(:event).permit(:title, :content, :image, :image_cache, :number, :day, :startdate,:starttime, :enddate,:endtime, :duetime, :duedate)
+  end
 
-    def set_user
-      @user = User.find_by(id: params[:id])
-    end
+  def set_event
+    @event = Event.find(params[:id])
+  end
 
-    def set_organizer
-      @organizer = Organizer.find_by(id: params[:id])
-    end
+  def set_user
+    @user = User.find_by(id: params[:id])
+  end
 
-    def set_search
-      @search = Event.ransack(params[:search])
-      @finding = @search.result(distinct: true)
-    end
+  def set_organizer
+    @organizer = Organizer.find_by(id: params[:id])
+  end
+
+  def set_search
+    @search = Event.ransack(params[:search])
+    @finding = @search.result(distinct: true)
+  end
 end
