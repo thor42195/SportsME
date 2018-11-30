@@ -32,14 +32,12 @@ class EventsController < ApplicationController
   end
 
   def confirm
-    @event = Event.new(event_params)
-    @event.organizer_id = current_organizer.id
+    @event = current_organizer.events.build(event_params)
     render :new  if @event.invalid?
   end
 
   def create
-    @event = Event.new(event_params)
-    @event.organizer_id = current_organizer.id
+    @event = current_organizer.events.build(event_params)
     if @event.save
        redirect_to current_organizer
     else
