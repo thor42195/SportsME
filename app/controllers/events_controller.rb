@@ -88,8 +88,12 @@ class EventsController < ApplicationController
     @organizer = Organizer.find_by(id: params[:id])
   end
 
+  def set_search_params
+    params.require(:search).permit(:title_cont)
+  end
+
   def set_search
-    @search = Event.ransack(params[:search])
+    @search = Event.ransack(params[:q])
     @finding = @search.result(distinct: true)
   end
 end

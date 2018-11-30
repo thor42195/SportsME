@@ -1,11 +1,11 @@
 <div class="card card-sm" style="margin:10px">
-  <%= search_form_for @search, url: searchOrganizer_path do |f| %>
+  <%= search_form_for(@search, url: searchOrganizer_path) do |f| %>
   <div class="card-body row no-gutters align-items-center">
     <div class="col-auto">
       <i class="fas fa-search h4 text-body"></i>
     </div><!--end of col-->
     <div class="col">
-      <%= f.search_field :title_or_place_cont ,class:"form-control form-control-lg form-control-borderless",placeholder: "気になるキーワードを入力してください(例,野球、初心者など)", :size=>"40*30"  %>
+      <%= f.search_field :title_cont ,class:"form-control form-control-lg form-control-borderless",placeholder: "気になるキーワードを入力してください(例,野球、初心者など)", :size=>"40*30"  %>
     </div><!--end of col-->
     <div class="col-auto">
       <%= f.submit "search", class:"btn btn-lg btn-success"%>
